@@ -9,7 +9,7 @@ With the help of a tutorial from DataCamp on Python Recommender Systems, I appli
 
 **Python Version**: 3.8.10
 
-**Packages**: pandas, numpy, string, re, nltk, sklearn
+**Packages**: requests, beautifulsoup, csv, pandas, numpy, string, re, nltk, sklearn
 
 **Beginner Tutorial: Recommender Systems in Python**
 
