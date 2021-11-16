@@ -35,11 +35,11 @@ For scraping, I decided I wanted 5 features for the data of interest:
 
 Even though my recommender system would be content-based, thus only the summary feature would be used, I thought it would be interesting to collect these other pieces of data just in case I wanted to analyze further to learn more about the video games in the dataset. 
 
-![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/master/Images/web-scraper-snap.JPG "Key part of web-scraping code: lines 42-47 are html that contain desired features.")
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/web-scraper-snap.JPG "Key part of web-scraping code: lines 42-47 are html that contain desired features.")
 
 This scraper would scrape the first 100 pages of metacritic's catalogue, yielding the original dataset of about 5000 rows, with around 3700 as unique records.
 
-![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/master/Images/scraped-data-snap.JPG "snapshot of scraped data")
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/scraped-data-snap.JPG "snapshot of scraped data")
 
 ### Final Kaggle Dataset
 
