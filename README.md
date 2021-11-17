@@ -57,6 +57,43 @@ In the data wrangling phase, my cleaning strategy was straightforward:
 
 The NLP techniques used consisted of converting words to lowercase, dropping stopwords and punctuation, and performing stemming and lemmatization on the tokenized texts.
 
+From reading more into recommender systems, I learned that they work by using some sort of distance formula, whether it be Euclidean Distance, Cosine Similarity, Manhattan Distance or other such metrics. Sticking with the DataCamp resource, I compute the pairwise cosine similarity scores for all unique video games based on their summaries, recommending games based on that similarity score threshold.
+
+To do this, more NLP knowledge is needed to convert the raw text data into numerical form. Bag of Words is an option, but we use TF-IDF, or Term Frequency-Inverse Document Frequency vectorization to generate vector representations of the summaries.
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/tfidf-formula.JPG "TFIDF formula- Source: Wikipedia")
+
+For a recap, the TF-IDF score of a video game summary is the frequency of a word occuring in that summary, down-weighted by the number of documents, or summaries, in which a word occurs. This reduces the importance of words common in video game summaries and thus minimizes their effect in computing a similarity score.
+
+Using the `TfIdfVectorizer` from scikit-learn, we fit and tranform the tokenized summary data to get a TF-IDF matrix to compute the cosine similarity scores using `linear_kernel`, also from scikit-learn.
+
+## Building the Recommender
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/cosine-formula.JPG "Cosine Similarity formula- Source: DataCamp")
+
+The formula is calculated as so, where we get the dot product between each vector within the TF-IDF matrix to get the cosine similarity score. This outputs our cosine similarity matrix where each row is a video game with *n* columns, n being the number of unique rows in our original dataset. Using the kaggle dataset, this outputted a **12153x12153** matrix.
+
+To create the recommender system, we define a function that takes a video game title as input and outputs the 10 most similar video games. This requires several steps:
+
+- Create a reverse mapping of video game titles to their dataframe indices.
+- Define function to get index of video game given its title
+- Use that index to get a list of cosine similarity scores for the inputted video game with all video games
+- Convert list to tuple where first element is position and second is similarity score
+- Sort by similarity score
+- Return 10 most similar video games using index position via reverse mapping
+
+The result is a content/summary-based video game recommender that returns expected results:
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-1.JPG "First example")
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-2.JPG "Second example")
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-3.JPG "Third example")
+
+## Future Works & Production Ideas
+
+### Improvements
+
+### Future Projects
 
 
-Reading more into it, I learned that recommender systems work by using some sort of distance formula, whether it be Euclidean Distance, Cosine Similarity, Manhattan Distance or other such metrics. 
