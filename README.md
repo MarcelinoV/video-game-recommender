@@ -103,6 +103,8 @@ The result is a content/summary-based video game recommender that returns expect
 
 The recommender can be improved to output games more similar to inputs than our current recommender by **acquiring more or better data**, better data meaning records that include a video game's producer, main character, genre, and other key details that go into recommending a video game based on an input.
 
+With better data, we could also change the method of finding recommendations by implementing a collaborative filtering recommender, which is said to return more quality recommendations than our content-based one.
+
 Since these features are absent in our current data, another worthwhile avenue of improvement would be unsupervised machine learning, most likely via clustering. By doing this we could find underlying patterns in the data and generate features out of patterns. This will most likely be my plan for improving this recommender.
 
 ### Future Projects
