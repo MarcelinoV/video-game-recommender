@@ -1,5 +1,6 @@
 # Content-based Video Game Recommender
-Content-based video game recommender using Metacritic game review dataset.
+
+![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/national-video-games-day.JPG "Source: gamerant.com")
 
 A couple of weeks ago, I realized that the only type of analytics I haven't done yet from the four main types of analytics (descriptive, diagnostic, predictive, and prescriptive) was prescriptive analytics. After googling examplings of prescriptive analytics projects, I found that recommender systems are one of the most popular types of prescriptive analytic algorithms. So after reading more about recommender systems, I decided to do something I always wanted to do: Build a recommender system for video games.
 
