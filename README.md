@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/national-video-games-day.jpg "Source: gamerant.com")
 
-A couple of weeks ago, I realized that the only type of analytics I haven't done yet from the four main types of analytics (descriptive, diagnostic, predictive, and prescriptive) was prescriptive analytics. After googling examplings of prescriptive analytics projects, I found that recommender systems are one of the most popular types of prescriptive analytic algorithms. So after reading more about recommender systems, I decided to do something I always wanted to do: Build a recommender system for video games.
+A couple of weeks ago, I realized that the only type of analytics I haven't done yet from the four main types of analytics (descriptive, diagnostic, predictive, and prescriptive) was prescriptive analytics. After googling examples of prescriptive analytics projects, I found that recommender systems are one of the most popular types of prescriptive analytic algorithms. So after reading more about recommender systems, I decided to do something I always wanted to do: Build a recommender system for video games.
 
 With the help of a tutorial from DataCamp on Python Recommender Systems, I applied the ideas from there to build out my recommender system based on cosine similarity as the metric for finding games similar to an input.
 
@@ -52,8 +52,8 @@ https://www.kaggle.com/deepcontractor/top-video-games-19952021-metacritic
 
 In the data wrangling phase, my cleaning strategy was straightforward:
 
-1. Drop duplicate titles in the dataset.
-2. Drop rows where the summary was null.
+1. Drop duplicate titles in the dataset
+2. Drop rows where the summary was null
 3. Use NLP techniques to create tokenized feature of summaries
 
 The NLP techniques used consisted of converting words to lowercase, dropping stopwords and punctuation, and performing stemming and lemmatization on the tokenized texts.
@@ -76,7 +76,7 @@ The formula is calculated as so, where we get the dot product between each vecto
 
 To create the recommender system, we define a function that takes a video game title as input and outputs the 10 most similar video games. This requires several steps:
 
-- Create a reverse mapping of video game titles to their dataframe indices.
+- Create a reverse mapping of video game titles to their dataframe indices
 - Define function to get index of video game given its title
 - Use that index to get a list of cosine similarity scores for the inputted video game with all video games
 - Convert list to tuple where first element is position and second is similarity score
@@ -85,9 +85,15 @@ To create the recommender system, we define a function that takes a video game t
 
 The result is a content/summary-based video game recommender that returns expected results:
 
+### GTA 5
+
 ![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-1.JPG "First example")
 
+### Super Mario Galaxy
+
 ![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-2.JPG "Second example")
+
+### Halo 2
 
 ![alt text](https://github.com/MarcelinoV/video-game-recommender/blob/main/Images/example-3.JPG "Third example")
 
@@ -95,6 +101,12 @@ The result is a content/summary-based video game recommender that returns expect
 
 ### Improvements
 
+The recommender can be improved to output games more similar to inputs than our current recommender by **acquiring more or better data**, better data meaning records that include a video game's producer, main character, genre, and other key details that go into recommending a video game based on an input.
+
+Since these features are absent in our current data, another worthwhile avenue of improvement would be unsupervised machine learning, most likely via clustering. By doing this we could find underlying patterns in the data and generate features out of patterns. This will most likely be my plan for improving this recommender.
+
 ### Future Projects
 
+In terms of accessibility and utility, I plan on implementing a web application for the recommender so that it can be a usable data science project rather than another repo on github. Such a project would further my learning how how to productionize models as well.
 
+After this experience, I hope to apply and improve upon the same methods used here to try my hand at building a **Pokemon Recommender**. Such an engine would ideally be able to recommend not just similar Pokemon to an input, but also Pokemon that are best suited to defeat the inputted Pokemon. I have some ideas on implementing this, and look forward to experimenting.
